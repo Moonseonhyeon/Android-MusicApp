@@ -34,6 +34,9 @@ public class MyService extends Service {
             mp = MediaPlayer.create(this, R.raw.sample2);
         }
         mp.start(); //인텐트의 노래가 서비스에 달라붙어서 실행된다.
+
+        int sec = mp.getDuration()/1000;
+        Log.d(TAG, "onStartCommand: 음악재생시간"+ sec+"초");
         return super.onStartCommand(intent, flags, startId);
     }
 
